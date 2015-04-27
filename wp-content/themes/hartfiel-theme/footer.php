@@ -7,3 +7,16 @@
  * @package photography-theme
  */
 ?>
+
+
+	</div><!-- close the #main div -->
+
+		<footer>
+		
+
+		</footer>
+
+		<?php wp_footer(); ?>
+		
+</body>
+</html>

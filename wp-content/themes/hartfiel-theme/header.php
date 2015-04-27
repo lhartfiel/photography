@@ -39,3 +39,20 @@
 
 
 </head>
+
+<body <?php body_class(); ?>>
+
+  <header>
+
+    <nav>
+
+      <?php //add nave menu from functions.php ?>
+      <?php wp_nav_menu( array(
+      'theme_location' => 'primary' )); 
+      ?>
+
+    </nav>
+
+  </header>
+
+  <div id="main"> <!-- Start the main div -->

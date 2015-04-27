@@ -1,0 +1,42 @@
+# Files below will be ignored
+# Anything with an * is universally ignored
+# See https://www.gitignore.io for additional examples
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.zip
+*.vi
+*.exe
+*~
+
+# OS folders
+.DS_Store
+._*
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+*.sass-cache
+*.ruby-version
+node_modules
+
+# WordPress
+*.log
+.htaccess
+wp-config.php
+wp-content/advanced-cache.php
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/wp-cache-config.php
