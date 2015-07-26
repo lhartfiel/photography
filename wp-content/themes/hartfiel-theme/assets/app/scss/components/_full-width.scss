@@ -1,0 +1,33 @@
+//***********************************
+//Full-Width styles 
+//***********************************
+
+.full-width {
+	position: relative;
+	overflow: hidden;
+
+	.full-width-img {
+		background-size: cover;
+		position: absolute;
+		width: 100%;
+		top: 0;
+		overflow: hidden;
+		z-index: -1;
+
+		img {
+			width: 100%;
+			opacity: .3;
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			display: block;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+			@include linear-gradient(to bottom, rgba(255,255,255,.4) 0%, white 25%);
+		}
+	}
+}

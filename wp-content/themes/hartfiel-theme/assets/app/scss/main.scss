@@ -1,0 +1,18 @@
+//***********************************
+//Import all SCSS Partials
+//***********************************
+@import "bourbon";
+@import "neat";
+
+@import "breakpoints";
+@import "base";
+@import "variables";
+@import "typography";
+
+@import "nav";
+@import "app";
+@import "components/components";
+
+@import "gallery";
+
+@import "footer";

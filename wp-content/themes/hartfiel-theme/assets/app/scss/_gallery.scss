@@ -1,0 +1,467 @@
+//***********************************
+//All Gallery-related styles 
+//***********************************
+
+.gallery-archive {
+	position: fixed;
+	background-color: black;
+	clear: both;
+
+	.images {
+		position: relative;
+		float: left;
+		overflow: hidden;
+		transition: all .75s ease-in;
+		border-right: 4px solid white;
+		background-image: rgba(0,0,0,.25);
+		
+
+		@include media($mobile-only) {
+			width: 100%;
+			height: 120px;
+			border-right: none;
+			border-bottom: 4px solid white;
+		}
+
+		a.collapse {
+			display: none;
+		}
+
+		a.img-wrap {
+			position: absolute;
+		  top: 0;
+		  height: 100%;
+		  width: 100%;
+		}
+
+		a:after {
+			position: absolute;
+			content: "";
+			width: 100%;
+			height: 100%;
+  		top: 0;
+  		background-color: rgba(0,0,0,.5);
+  		transition: .5s all ease-in;
+		}
+
+		&:hover {
+			a:after {
+				background-color: rgba(0,0,0,.2);
+				transition: .5s all ease-in;
+			}
+
+			h1 {
+				text-shadow: none;
+				text-shadow: -2px 2px 0px rgba(0,0,0,.7);
+				cursor: pointer;
+
+				&:before {
+					background-color: rgba(0,0,0,.6);
+				}
+			}
+
+			h5 {
+				opacity: 1;
+				transition: .5s opacity ease-in;
+			}
+		}
+
+		&:last-child {
+			border-right: 0;
+		}
+
+		a {
+			  clear: both;
+  			display: block;
+		}
+
+		img {
+			filter: grayscale(60%);
+			min-height: 100%;
+		}
+		
+		//Styles when 'active' class is applied and full-width image is revealed
+		&.active {
+			float: none;
+			position: relative;
+			margin: 0 auto;
+			transition: all .5s ease-in;
+			z-index: 100;
+
+			@include media($mobile-only) {
+				height: 100%;
+			}
+
+			h5 {
+				display: none;
+			}
+			a.collapse {
+				position: absolute;
+				display: inline-block;
+				width: 25%;
+				top: 0;
+				right: 0;
+				padding: 10px;
+				background-color: black;
+				color: white;
+				text-decoration: none;
+				z-index: 12;
+
+				@include media($medium) {
+					width: 25%;
+				}
+
+				@include media($desktop) {
+					width: 15%;
+				}
+
+				&.fa-minus-circle {
+
+					&:before {
+						display: none;
+					}
+				}
+				
+				//Minus icon with the circle
+				&:after {
+					content: "\f056";
+					position: relative;
+  				padding-left: 5px;
+					background-color: black;
+					color: white;
+				}
+			}
+			a:after {
+	  		background-color: rgba(0,0,0,0);
+			}
+	
+			img {
+				// width: 100%!important;
+				position: absolute;
+			}
+		}
+	}
+
+	.image-reveal {
+		position: relative;
+		display: none;
+		margin: 0 auto;
+		padding: 0 18px;
+		width: 100%;
+		height: 100%;
+		transition: 1s all ease-in;
+
+		@include media($desktop) {
+			width: 40%;
+		}
+
+		@include media($large) {
+			width: 42%;
+		}
+
+		&:hover:before {
+			background-color: rgba(0,0,0,.5);
+		}
+	
+		//Add a diamond background behind the image-reveal class
+		&:before {
+			content: "";
+			position: absolute;
+			display: block;
+			margin: 0 auto;
+			left: 0;
+			right: 0;
+			width: 200px;
+  		height: 200px;
+  		top: 25%;
+			transform:translateX(0px) rotate(45deg) translateY(0px) scale(1.5);
+			transition: 1s all ease-in;
+			// background-color: rgba(255,255,255,.45);
+			box-shadow: 0px 0px 3px 3px rgba(0,0,0,.1);
+			border: 4px double white;
+
+			@include media($desktop) {
+				width: 250px;
+	  		height: 250px;
+			}
+
+		}
+	}
+	.image-reveal-content {
+		position: relative;
+		top: 25%;
+		width: 100%;
+		max-width: 250px;
+		margin: 0 auto;
+		z-index: 120;
+		text-align: center;
+
+
+		@include media($medium) {
+			max-width: 215px;
+		}
+
+		@include media($desktop) {
+			max-width: 250px;
+		}
+
+		@include media($large) {
+			max-width: 350px;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+		}
+	}
+
+	h1 {
+		position: absolute;
+		top: 35%;
+		right: 0;
+  	left: 0;
+		text-align: center;
+		line-height: 63px;
+		color: $gold;
+		text-shadow: -2px 2px 0px rgba(255,255,255,.3);
+		z-index: 10;
+		font-family: $main-head;
+
+		@include media($mobile-only) {
+				top: 20%;
+			}
+
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			height: 55px;
+			width: 55px;
+			background-color: rgba(255,255,255,.6);
+			transform: rotate(45deg);
+			z-index: -1;
+			margin: 0 auto;
+			left: 0;
+			right: 0;
+			border: 2px solid $gold;
+
+			@include media($desktop) {
+				height: 70px;
+				width: 70px;
+			}
+		}
+	}
+
+	h5 {
+		position: absolute;
+	  width: 100%;
+	  padding-top: 8px;
+	  padding-bottom: 8px;
+	  text-align: center;
+	  font-family: $main-head;
+	  background-color: black;
+	  color: white;
+	  transition: all .5s ease-in;
+	  font-size: 15px;
+	  cursor: pointer;
+		
+		@include media($mobile-only) {
+			bottom: -10px;
+		}
+  	@include media($tablet-only) {
+			bottom: 120px;
+  	}
+
+  	@include media($medium) {
+  		// display: none;
+  		opacity: 0;
+  		transform: rotate(-45deg);
+	  	top: 74px;
+	  	bottom: initial;
+			left: -50px;
+  		width: 200%;
+  	}
+
+  	@include media($desktop) {
+  		left: -63px;
+  		width: 180%;
+  		font-size: 22px;
+  	}
+
+  	@include media($large) {
+				  left: -135px;
+  	}
+	}
+
+	h2, p {
+		font-family: $main-head;
+		color: $tertiary;
+		color: white;
+  	text-shadow: 2px 2px 7px black;
+	}
+
+	h2 {
+		line-height: 56px;
+		text-align: center;
+		font-weight: 600;
+
+		@include media($medium) {
+			padding-bottom: 10px;
+		}
+
+		@include media($desktop) {
+			padding-bottom: 16px;
+		}
+
+		&:before,
+		&:after {
+			content: "";
+			display: inline-block;
+			height: 1px;
+			border-bottom: 2px solid white;
+			vertical-align: middle;
+			width: 15%;
+			box-shadow: 2px 2px 7px black;
+		}
+	}
+
+	p {
+		// font-family: $main-body-copy;
+		text-align: center;
+		font-size: 26px;
+		line-height: 34px;	
+	}
+
+	.button.small {
+		display: inline-block;
+		width: auto;
+		margin: 0 auto;
+		margin-top: 10px;
+		padding: 8px 27px;
+		text-align: center;
+		border: 1.5px solid rgba(255,255,255,.7);
+
+		@include media($desktop) {
+			margin-top: 35px;
+
+		}
+
+	}
+}
+
+//Gallery Single Pages
+
+.lh-gallery {
+	clear: both;
+
+	@include media($portables) {
+		margin-bottom: 42px;
+	}
+}
+
+.img-gallery-container {
+	float: left;
+}
+
+
+//Tiled Gallery
+.tiled-gallery-item {
+	// transition: all .5s ease-in;
+	position: relative;
+
+	&:after {
+		content: "";
+	}		
+
+	&:before {
+		content: "";
+		transition: all .25s ease-in;
+		transform:translateX(0px) rotate(0deg) translateY(0px) scale(.4);
+	}	
+
+	&:hover {
+
+			&:after {
+				content: "";
+			  background-color: rgba(0,0,0,.65);
+			  border: 2px solid white;
+			  height: 100%;
+			  width: 100%;
+			  display: block;
+			  position: absolute;
+			  cursor: pointer;
+		}
+
+		&:before {
+			cursor: pointer;
+			display: block;
+			content: "";
+			position: absolute;
+			margin: 0 auto;
+			padding: 0px;
+			vertical-align: middle;
+			width: 40px;
+			height: 40px;
+			top: 30%;
+			right: 0;
+			left: 0;
+			z-index: 100;
+			font-size: 28px;
+			text-align: center;
+			border: 4px double $gold;
+			background-color: rgba(0,0,0,.6);
+			color: #fff;
+			font-family: $main-body-copy;
+			text-shadow: 2px 2px 2px black;
+			transform:translateX(0px) rotate(45deg) translateY(0px) scale(1.1);
+			transition: all .25s ease-out;
+
+			@include media($tablet) {
+				width: 46x;
+				height: 46x;
+			}
+
+			@include media($desktop) {
+				width: 60px;
+				height: 60px;
+				top: 35%;
+			}
+		}
+
+		a {
+			transition: all .5s ease-in;
+
+			&:before {
+				position: absolute;
+				content: "+";
+				height: 100%;
+				width: 100%;
+				top: 30%;
+				left: 0;
+				text-align: center;
+				font-size: 28px;
+				color: #fff;
+				font-family: $main-body-copy;
+				z-index: 105;
+
+				@include media($desktop) {
+					font-size: 42px;
+					top: 35%;
+				}
+			}
+		}
+	}	
+}
+
+
+//Carousel Styles
+.jp-carousel-overlay {
+	height: auto;
+}
+
+#jp-carousel-comment-form-container,
+.jp-carousel-info {
+	display: none;
+}
+
+

@@ -1,0 +1,81 @@
+
+//Font Families
+$source: 'Source Sans Pro', sans-serif;
+$playfair: 'Playfair Display', serif;
+$elite: 'Special Elite', cursive;
+$quattro: 'Quattrocento Sans', sans-serif;
+$puritan: 'Puritan', sans-serif;
+
+$main-head: $playfair;
+$main-body-copy: $quattro;
+
+
+//Define any extends for typography
+.base-head {
+	font-family: $main-body-copy;
+	font-weight: 400;
+}
+
+//Header and Copy Styles
+
+h1, h2, h3, h4, h5, h6, p {
+	@extend .base-head;
+	color: $primary;
+	margin: 0;
+	color: $dark_purple;
+}
+
+h1 {
+	font-size: 48px;
+	line-height: 56px;
+	
+	@include media($desktop) {
+		font-size: 60px;
+		line-height: 80px;
+	}
+}
+
+h2 {
+	font-size: 34px;
+	line-height: 38px;
+
+	@include media($desktop) {
+		font-size: 48px;
+		line-height: 56px;
+	}
+}
+
+h3 {
+	font-size: 24px;
+	line-height: 32px;
+	letter-spacing: 1px;
+
+	@include media($desktop) {
+		font-size: 34px;
+		line-height: 51px;
+	}
+}
+
+h4 {
+	font-size: 24px;
+	line-height: 36px;
+}
+
+h5 {
+	font-size: 22px;
+	line-height: 33px;
+}
+
+h6 {
+	font-size: 18px;
+}
+
+p {
+	font-family: $main-body-copy;
+	font-size: 15px;
+	line-height: 26px;
+}
+
+ul, ol {
+
+}

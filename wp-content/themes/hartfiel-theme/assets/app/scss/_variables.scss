@@ -1,0 +1,28 @@
+//Basic Variables
+
+//Colors
+$gold: #A68C5B;
+$purple: #A6658F;
+$dark-purple: #684972;
+$light-purple: #BFAABA;
+$light-gray: #CED1C8;
+
+
+$primary: $purple;
+$secondary: $gold;
+$tertiary: $dark-purple;
+
+
+//Placeholders
+%form-icon {
+	position: absolute;
+	left: 5px;
+	bottom: 0;
+	font-family: FontAwesome;
+	color: lighten($tertiary, 40%);
+	width: auto;
+	height: auto;
+}
+
+
+

@@ -1,0 +1,105 @@
+//***********************************
+//2-Col Styles
+//***********************************
+
+.col-2 {
+	position: relative;
+	overflow: hidden;
+	padding-top: 80px;
+	padding-bottom: 80px;
+
+	.bkg-img {
+		background-size: cover;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		filter: grayscale(100%);
+		overflow: hidden;
+		z-index: -1;
+		
+
+		//background image styles
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			opacity: .3;
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			display: block;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+			background: rgba(255,255,255,.6);
+		}	
+	}
+
+	.image {
+		margin: 20px 0;
+		overflow: hidden;
+		border: 6px solid white;
+		box-shadow: 3px 3px 2px 0px lightgray;
+
+		img {
+			display: block;
+			min-width: 100%;
+		}
+	}
+
+	.col-left {
+		@include media($desktop) {
+			border-right: 4px double $light_purple;
+			padding-right: 20px;
+		}
+	}
+
+	//styles for the half-half columns
+	&.half {
+		.col-left {
+			@include media($desktop) {
+				@include span-columns( 6 of 12);
+			}
+		}
+
+		.col-right {
+			@include media($desktop) {
+				@include span-columns( 6 of 12);
+			}
+		}
+	}
+
+	//styles for the 2/3 left, 1/3 right columns
+	&.two-third-left {
+		.col-left {
+			@include media($desktop) {
+				@include span-columns( 8 of 12);
+			}
+		}
+
+		.col-right {
+			@include media($desktop) {
+				@include span-columns( 4 of 12);
+			}
+		}
+	}
+
+	//styles for the 1/3 left, 2/3 right columns
+	&.one-third-left {
+		.col-left {
+			@include media($desktop) {
+				@include span-columns( 4 of 12);
+			}
+		}
+
+		.col-right {
+			@include media($desktop) {
+				@include span-columns( 8 of 12);
+			}
+		}
+	}
+}

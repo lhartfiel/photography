@@ -1,0 +1,170 @@
+//***********************************
+//Cards Module styles 
+//***********************************
+
+
+.cards-module {
+	padding-top: 80px;
+	padding-bottom: 80px;
+
+  .grid-wrapper {
+ 		display: flex;
+		flex-wrap: wrap;
+  }
+
+  .button.full {
+  	position: absolute;
+  	bottom: 0;
+  	right: 0;
+  	left: 0;
+  	margin: 0;
+  	padding: 10px;
+  	text-align: center;
+  }
+
+	h5 {
+		position: relative;
+		padding: 10px 20px;
+		color: $tertiary;
+		font-family: $main-body-copy;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 10px 10px 15px 10px;
+		width: 100%;
+
+		&:after {
+			content: "";
+		  width: 50%;
+		  margin: 16px auto 0;
+		  height: 1px;
+		  display: block;
+		  border-bottom: 1px solid $dark-purple;
+		}
+	}
+
+	.top-content {
+		position: relative;
+	}
+
+	.description {
+		padding: 10px 15px 35px 15px;
+		text-align: left;
+
+		ul {
+			margin-top: 0;
+		}
+	}
+
+	p {
+		font-size: 15px;
+		line-height: 24px;
+		padding-bottom: 15px;
+	}
+
+	ul {
+		padding-left: 0;
+		margin-left: 1em;
+	}
+
+	ul li {
+		color: black;
+		list-style-position: inside;
+		font-family: $main-body-copy;
+		font-size: 15px;
+		line-height: 24px;
+	}
+
+	.cards-standard {
+		position: relative;
+		width: 100%;
+		border: 1px solid $light-gray;
+		margin-bottom: 60px;
+		text-align: center;
+
+
+    @include media($desktop) {
+    	width: 31.3%;
+    	flex: 0 31.3%;
+    	margin-left: 1%;
+			margin-right: 1%;
+    }
+
+		.image {
+			height: 200px;
+			overflow: hidden;
+
+		}
+
+		img {
+			min-height: 100%;
+			min-width: 100%;
+			filter: grayscale(60%);
+		}
+	}
+
+	.cards-featured {
+		position: relative;
+		border: 1px solid $light-purple;
+		margin-bottom: 60px;
+		margin-right: 1%;
+		margin-left: 1%;
+
+		@include media($desktop) {
+			@include span-columns(12 of 12);
+			// margin-left: 2.5%;
+			margin-top: 60px;
+			flex: 2 95%;
+		}
+
+		h4 {
+			position: absolute;
+			top: 0;
+			background-color: rgba(0,0,0,.5);
+			color: white;
+			padding: 10px;
+		}
+
+		h5 {
+			position: absolute;
+		  padding: 10px 10px 15px;
+		  width: 100%;
+		  top: 0;
+		  color: white;
+		  background-color: rgba(0,0,0,.5);
+
+		  &:after {
+		  	border-color: white;
+		  }
+		}
+		
+		.top-content {
+			position: relative;
+			@include span-columns(7 of 12);
+			margin-right: 0;
+
+			&:after {
+				content: "";
+				position: absolute;
+				display: block;
+				margin: 0 auto;
+				right: -10px;
+				width: 20px;
+	  		height: 20px;
+	  		top: 40%;
+				transform:translateX(0px) rotate(45deg) translateY(0px) scale(1.5);
+				transition: 1s all ease-in;
+				background-color: white;
+				border: 4px double white;
+			}
+		}
+		.description {
+			@include span-columns(5 of 12);
+
+		}
+		.image {
+			height: 330px;
+			overflow: hidden;
+		}
+	}
+}
+

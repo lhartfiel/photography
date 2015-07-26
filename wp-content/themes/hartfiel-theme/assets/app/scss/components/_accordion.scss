@@ -1,0 +1,104 @@
+//***********************************
+//Accordion Module styles 
+//***********************************
+
+.accordion-module {
+	margin-bottom: 80px;
+	background: url('../img/geometric_bkg_white.jpg');
+
+	h3 {
+		text-transform: uppercase;
+		display: inline-block;
+		width: auto;
+		margin-bottom: 25px;
+
+		&:after {
+			content: "";
+			display: block;
+			padding-top: 25px;
+			border-bottom: 2px solid $dark_purple;
+			width: 40%;
+		}
+	}
+
+	.question {
+		position: relative;
+		padding-top: 10px;
+		cursor: pointer;
+
+		&:before {
+			content: "\f175";
+		  position: absolute;
+		  left: 10px;
+		  top: 20%;
+		  padding: 5px;
+		  border-radius: 50%;
+		  border: 1px solid $tertiary;
+		  background-color: $tertiary;
+		  width: 26px;
+		  height: 26px;
+		  font-family: FontAwesome;
+		  font-size: 15px;
+		  font-weight: 400;
+		  text-align: center;
+		  color: white;
+		}
+
+		&.open {
+
+			&:before {
+				content: "\f176";
+			  position: absolute;
+			  width: 26px;
+			  height: 26px;
+			  left: 10px;
+			  top: 20%;
+			  padding: 5px;
+			  border-radius: 50%;
+			  border: 1px solid $tertiary;
+			  font-family: FontAwesome;
+			  font-size: 15px;
+			  font-weight: 400;
+			  text-align: center;
+			  color: $tertiary;
+			  background-color: white;
+			}
+
+			p {
+				color: $tertiary;
+				border-bottom: 0;
+			}
+		}
+
+		p {
+			color: $tertiary;
+			line-height: 20px;
+			padding-left: 10%;
+			padding-bottom: 15px;
+			border-bottom: 1px solid $tertiary;
+
+			@include media($mobile-only) {
+				padding-left: 20%;
+			}
+
+			@include media($tablet-only) {
+				padding-left: 15%;
+			}
+
+		}
+	}
+
+	.answer {
+		position: relative;
+		display: none;
+		border-left: 45px solid lighten($tertiary, 10%);
+		padding-left: 2%;
+		background-color: $tertiary;
+
+		p {
+			margin-bottom: 20px;
+			padding: 15px;
+			color: white;
+		}
+	}
+}

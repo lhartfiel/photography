@@ -1,0 +1,86 @@
+@mixin button($color) {
+
+}
+
+.button {
+	border: 2px solid $dark-purple;
+	padding: 10px 30px;
+	background-color: rgba(white, 0.6);
+	color: $dark-purple;
+	font-size: 24px;
+	font-family: $main-body-copy;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 400;
+	transition: .5s all ease;
+
+	&:hover {
+		background-color: $dark-purple;
+		color: white;
+		padding: 12px 40px;
+	}	
+
+	&.btn-large {
+		background-color: transparent;
+		border: 2px solid white;
+		color: white;
+	}
+}
+
+.small {
+	border: none;
+	font-size: 17px;
+	border: 2px solid $dark-purple;
+	color: $dark-purple;
+	padding: 4px 20px;
+	transition: all .5s ease;
+
+	@include media($portables) {
+		text-align: center;
+		display: block;
+		margin: 0 15%;
+	}	
+
+	&:hover {
+		background-color: $dark-purple;
+		color: white;
+		padding: 6px 30px;
+
+		&:before {
+			margin-left: 0px;
+			color: white;
+		}
+	}
+}
+
+.small.gallery {
+	border: 2px solid black;
+	color: white;
+	background-color: black; 
+
+	&:hover {
+		background-color: white;
+		color: black;
+	}
+}
+
+.cards {
+	width: auto;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: $dark_purple;
+	color: white;
+	border: .075em solid purple;
+	margin: 0 auto;
+	padding: 10px 20px;
+
+
+	&:hover {
+		padding: 10px 20px;
+		background-color: white;
+		color: $dark_purple;
+	}
+}
+

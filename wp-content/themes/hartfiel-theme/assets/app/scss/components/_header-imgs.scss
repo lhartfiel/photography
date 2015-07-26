@@ -1,0 +1,176 @@
+//***********************************
+//Styles for header/hero images on pages
+//***********************************
+
+
+//Header Image Layouts
+
+.header-imgs {
+	overflow: hidden;
+	position: relative;
+
+	&:after {
+		background-image: linear-gradient( rgba(0, 0, 0, 0.5) 25%, rgba(0, 0, 0, 0.3) 75%);
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		height: 330px;
+		top: 0;
+	}
+
+	img {
+		min-height: 100%;
+		min-width: 100%;
+	}
+
+	.full-img {
+		overflow: hidden;
+		filter: grayscale(60%);
+	}
+
+	.full-img ~ .title {
+		position: absolute;
+		height: 100px;
+		width: 100%;
+		bottom: 0;
+	}
+	
+	//Styles for 3 column headers images
+	.col-3-head {
+		@include span-columns(4 of 4);
+		overflow: hidden;
+		position: relative;
+		outline: 2px solid black;
+		filter: grayscale(60%);
+		
+		@include media($desktop) {
+			margin: 0;
+		}
+
+		&:first-child,
+		&:nth-child(2) {
+			display: none;
+			filter: grayscale(100%);
+		
+			@include media($desktop) {
+				display: block;
+				float: left;
+				width: 27.5%;
+			}
+		}
+		
+		&:nth-child(2) {
+			
+			@include media($medium) {
+				display: block;
+				float: left;
+				width: 55%;
+				margin-right: 0;
+			}
+
+			@include media($desktop) {
+				display: block;
+				float: left;
+				width: 27.5%;
+			}
+		}
+
+		&:nth-child(3) {
+			display: block;
+
+			@include media($medium) {
+				float: right;
+				width: 45%;
+				height: 100%;
+				margin-left: 0;
+			}
+		}
+	}
+	
+	//Styles for 2 column header images
+	.col-2-head {
+		overflow: hidden;
+		padding: 0;
+		display: block;
+		margin: 0;
+		filter: grayscale(80%);
+		outline: 2px solid black;
+
+		&:first-child {
+			display: none;
+
+			@include media($medium) {
+				float: left;
+				height: 300px;
+				width: 55%;
+				overflow: hidden;
+				display: block;
+				filter: grayscale(100%);
+			}
+		}
+
+		&:nth-child(2) {
+			@include media($medium) {
+				float: right;	
+				height: 420px;
+				display: block;	
+				width: 45%;
+			}
+		}
+
+		img {
+			min-height: 100%;
+		}
+	}
+
+	.title {
+		width: 55%;
+		// height: 100%;
+		position: absolute;
+		height: 100px;
+		// width: 100%;
+		bottom: 0;
+		float: left;
+		margin: 0;
+		background-color: black;
+		overflow: hidden;
+
+		@include media($portables) {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: auto;
+			padding: 5px 0;
+		}
+
+		h3 {
+			color: rgba(255,255,255,.8);
+			text-align: center;
+
+			@include media($medium) {
+				padding-top: 20px;
+			}
+
+			&:before,
+			&:after {
+				content: "";
+				display: inline-block;
+				height: 1px;
+				position: relative;
+				border-bottom: 1px solid rgba(255,255,255,.8);
+				vertical-align: middle;
+				width: 40%;
+			}
+
+			&:before {
+				right: 20px;
+				margin-left: -50%;
+			}
+
+			&:after {
+				left: 20px;
+				margin-right: -50%;
+			}
+		}
+	}
+}

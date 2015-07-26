@@ -1,0 +1,271 @@
+//***********************************
+//Navigation styles 
+//***********************************
+
+
+//Main navigation
+nav {
+	display: none;
+
+	@include media($medium) {
+		display: block;
+		position: fixed;
+		height: 100%;
+		width: 270px;
+		top: 0;
+		padding-top: 50px;
+		z-index: 100;
+		background-color: black;
+		border-right: 4px solid $gold;
+		text-align: center;
+	}
+
+	.logo {
+		max-width: 180px;
+		margin: 0 auto;
+		padding-bottom: 25px;
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	.menu-primary-menu-container {
+		text-align: left;
+		margin: 0;
+	}
+
+	ul {
+		@include media($mobile-only) {
+			padding-left: 0;
+		}
+	}
+
+	ul li {
+		font-family: $main-body-copy;
+
+		a {
+			list-style: none;
+			color: $gold;
+			text-decoration: none;
+			font-size: 14px;
+			line-height: 36px;
+			text-transform: uppercase;
+			transition: all .25s ease-in;
+
+			&:before {
+		    content: '\f101';
+				display: none;
+		    position: relative;
+				margin-right: 5px;
+				vertical-align: middle;
+				font-family: 'FontAwesome';
+		    font-size: 14px;
+			}
+
+			&:hover {
+				background-color: $gold;
+				display: block;
+				color: black;
+
+				@include media($medium) {
+					color: darken($gold, 10%);
+					margin-left: 10px;
+					background-color: transparent;
+					display: inline-block;
+				}
+				
+				&:before {
+					display: inline-block;
+				}
+			}
+		}
+
+		&:first-of-type {
+			@include media($medium) {
+				border-top: 1px solid $gold;
+				padding-top: 10px;
+				width: 80%;
+			}
+		}
+
+		&:last-of-type {
+			@include media($medium) {
+				border-bottom: 1px solid $gold;
+				padding-bottom: 10px;
+				width: 80%;
+			}
+		}
+
+		//Nav style for current page
+		&.current_page_item  {
+
+			@include media($medium) {
+				margin-left: 0;
+				background-color: transparent;
+				display: inline-block;
+
+				a {
+						color: darken($gold, 10%);
+
+						&:before {
+							position: absolute;
+							left: 23px;
+							display: inline-block;
+						}
+				}
+
+				ul li {
+					a {
+						color: $gold;
+
+						&:before {
+						 left: 45px;
+						} 
+					}
+				}
+			}
+		}
+
+		ul {
+			padding-left: 20px;
+		}
+
+		ul.sub-menu li {
+			display: block;
+			width: 100%;
+
+			&:first-of-type {
+				border-top: none;
+			}
+
+			&:last-of-type {
+				border-bottom: none;
+			}
+			
+			//Nav style for current page - nested menu item
+			&.current_page_item {
+				a {
+					color: darken($gold, 10%);
+
+					&:before {
+						left: 44px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.social-icon {
+	display: inline-block;
+	padding-top: 40px;
+
+	a {
+		padding: 5px 4px;
+
+		&:hover  {
+
+			.fa.circle {
+				background-color: transparent;
+				color: darken($gold, 10%);
+			}
+		}
+	}
+
+	.fa.circle {
+		width:28px;
+		margin: 6px 0;
+		font-size: 18px;
+		text-align: center;
+		line-height:28px;
+		background-color: darken($gold, 10%);
+		color: black;
+		border: 1px solid darken($gold, 10%);
+		transition: all 0.25s ease-in;
+	}
+}
+
+/***************************
+//Mobile navigation
+***************************/
+nav.mobile {
+	display: block;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+
+	&:before {
+		content: "\f0c9";
+		display: block;
+		width: 100%;
+		text-align: right;
+		font-size: 32px;
+		color: white;
+		background-color: black;
+		padding: 10px;
+	}
+
+	&.open {
+		height: 100%;
+
+		&:before {
+			content: "\f057";
+			display: block;
+			width: 100%;
+			text-align: right;
+			font-size: 32px;
+			color: white;
+			background-color: black;
+			padding: 10px;
+		}
+	}
+	
+	.menu {
+		display: none;
+
+	}
+
+	@include media($medium) {
+		display: none;
+	}
+
+	.menu-primary-menu-container {
+		margin: 0;
+		text-align: left;
+
+		&.active {
+			height: 100%;
+			background-color: black;
+		}
+
+	}
+
+	ul {
+			margin-top: 0;
+			padding-left: 0;
+			margin-bottom: 0;
+	}
+
+	ul li {
+		font-family: $main-body-copy;
+
+		ul li {
+			margin-left: 1em;
+		}
+
+		a {
+			padding-left: 20px;
+			display: block;
+			width: 100%;
+
+			&:hover {
+				color: black;
+				background-color: $gold;
+			}	
+		}
+	}	
+}

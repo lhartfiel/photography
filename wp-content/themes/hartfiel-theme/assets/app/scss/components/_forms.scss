@@ -1,0 +1,99 @@
+//***********************************
+//Styles for Form Components
+//***********************************
+.contact-form {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+.form {
+
+	@include media($desktop) {
+		float: left;
+		width: 60%;
+	}
+
+	p {
+		padding-bottom: 12px;
+	}
+}
+
+.contact-info {
+	overflow: hidden;
+	margin-top: 30px;
+
+	@include media($desktop) {
+		float: right;
+		width: 40%;
+		margin-top: 0;
+		padding: 10px 12px;
+		border-radius: 10px;
+		box-shadow: 1px 1px 9px 1px gray;
+	}
+
+	.map {
+		overflow: hidden;
+	}
+
+	iframe {
+		@include media($desktop) {
+			width: 350px;
+  		height: 350px;
+		}
+	}
+}
+
+h6 {
+	  margin-bottom: 30px;
+}
+
+form label {
+	color: $dark-purple;
+	font-family: $main-body-copy;
+	font-size: 18px;
+}
+
+input, 
+textarea {
+	padding: 10px;
+	padding-left: 25px;
+	border: 0;
+	border-bottom: 2px solid $tertiary;
+	color: $dark-purple;
+	font-family: $main-body-copy;
+
+	&:focus {
+		outline: 0px solid #684972;
+		background-color: lighten($tertiary, 60%);
+	}
+}
+
+input {
+	width: 100%;
+
+	@include media($desktop) {
+		width: 90%;
+	}
+}
+
+textarea {
+	width: 100%;
+	margin-top: 18px;
+	border: 2px solid $tertiary;
+
+	@include media($desktop) {
+		width: 90%;
+	}
+}
+
+input[type="submit"] {
+	@extend .button;
+	@extend .small;
+	margin-top: 30px!important;
+	display: inline;
+	margin: 0;
+
+	@include media($medium) {
+		width: inherit;
+	}
+}

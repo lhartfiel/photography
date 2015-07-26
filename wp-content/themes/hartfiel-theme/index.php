@@ -8,8 +8,9 @@
 *
 * @package photography-theme
 */
+?>
 
-get_header();
+<?php get_header(); ?>
 
 
 <section id="primary" role="main">
@@ -19,22 +20,22 @@ get_header();
 
 
 		<!-- Begin the loop -->
-    <?php while ( have_posts() ) { the_post(); ?>
+        <?php while ( have_posts() ) { 
+            the_post(); ?>
 
-    	<article>
-    		<header class="entry-header">
-					<h1><?php the_title(); ?></h1>
-    		</header>
+        	<article>
+        		<header class="entry-header">
+    				<h1><?php the_title(); ?></h1>
+        		</header>
 
-    		<?php the_content(); ?>
+        		<?php the_content(); ?>
 
-    	</article>
+        	</article>
 
-    <?php } //endwhile ?>
+        <?php } //endwhile ?>
 
-		<?php } //endif ?> 
+	<?php } else { //endif ?> 
 
-    <?php else { ?>
         <!-- there IS NOT content for this query -->
     	<article>
     		<header class="entry-header">
@@ -42,9 +43,9 @@ get_header();
     		</header>
     		<p><?php _e( "We can&#039;t find content for this page!", "photography-theme" ); //error message ?></p>
 
-    <?php } ?> <!-- end else -->
+    <?php } //end else ?> 
 
 </section><!-- #primary -->
 
 
-get_footer();
+<?php get_footer(); ?>
