@@ -1047,14 +1047,15 @@ nav.mobile {
 .cards-module {
   padding-top: 80px;
   padding-bottom: 80px; }
-  .cards-module .grid-wrapper {
+  .cards-module .flex-container {
     display: -webkit-box;
-    display: -webkit-flex;
+    display: box;
     display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap; }
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap; }
   .cards-module .button.full, .cards-module input.full[type="submit"] {
     position: absolute;
     bottom: 0;
@@ -1108,10 +1109,6 @@ nav.mobile {
     @media screen and (min-width: 960px)  {
       .cards-module .cards-standard {
         width: 31.3%;
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 31.3%;
-            -ms-flex: 0 31.3%;
-                flex: 0 31.3%;
         margin-left: 1%;
         margin-right: 1%; } }
     .cards-module .cards-standard .image {
@@ -1124,6 +1121,7 @@ nav.mobile {
               filter: grayscale(60%); }
   .cards-module .cards-featured {
     position: relative;
+    width: 100%;
     border: 1px solid #BFAABA;
     margin-bottom: 60px;
     margin-right: 1%;
@@ -1134,11 +1132,7 @@ nav.mobile {
         display: block;
         margin-right: 2.35765%;
         width: 100%;
-        margin-top: 60px;
-        -webkit-box-flex: 2;
-        -webkit-flex: 2 95%;
-            -ms-flex: 2 95%;
-                flex: 2 95%; }
+        margin-top: 60px; }
         .cards-module .cards-featured:last-child {
           margin-right: 0; } }
     .cards-module .cards-featured h4 {

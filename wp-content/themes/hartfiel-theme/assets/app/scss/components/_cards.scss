@@ -7,9 +7,15 @@
 	padding-top: 80px;
 	padding-bottom: 80px;
 
-  .grid-wrapper {
+  .flex-container {
+  	display: -webkit-box;
+  	display: box;
+  	display: -moz-box;
+		display: -ms-flexbox;
+ 		display: -webkit-flex;
  		display: flex;
-		flex-wrap: wrap;
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
   }
 
   .button.full {
@@ -77,14 +83,15 @@
 	.cards-standard {
 		position: relative;
 		width: 100%;
+		// height: 100%;
 		border: 1px solid $light-gray;
 		margin-bottom: 60px;
 		text-align: center;
 
-
     @include media($desktop) {
     	width: 31.3%;
-    	flex: 0 31.3%;
+    	// -webkit-flex: 0 31.3%;
+    	// flex: 0 31.3%;
     	margin-left: 1%;
 			margin-right: 1%;
     }
@@ -104,6 +111,7 @@
 
 	.cards-featured {
 		position: relative;
+		width: 100%;
 		border: 1px solid $light-purple;
 		margin-bottom: 60px;
 		margin-right: 1%;
@@ -113,7 +121,8 @@
 			@include span-columns(12 of 12);
 			// margin-left: 2.5%;
 			margin-top: 60px;
-			flex: 2 95%;
+			// -webkit-flex: 3 95%;
+			// flex: 3 95%;
 		}
 
 		h4 {
