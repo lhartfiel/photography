@@ -31,7 +31,7 @@ gulp.task('images', function(){
 
 //Compile SCSS and minify CSS
 gulp.task('styles', function(){
-	return gulp.src('app/scss/main.scss')
+	return gulp.src('app/scss/**/*.scss')
 	.pipe(plumber({
 		handleError: function (err) {
         console.log(err);

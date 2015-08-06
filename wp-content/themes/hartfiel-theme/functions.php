@@ -87,6 +87,8 @@ function wp_pagination() {
       'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
       'format' => '?paged=%#%',
       'current' => max( 1, get_query_var('paged') ),
+      'end_size' => 1,
+      'mid_size' => 2,
       'total' => $wp_query->max_num_pages,
       'type'  => 'array'
   ) );
@@ -144,7 +146,7 @@ function photography_theme_scripts(){
 
    wp_enqueue_script(
        'main',
-       get_template_directory_uri() . '/assets/app/js/main.js',
+       get_template_directory_uri() . '/assets/build/js/main.js',
        array('jquery'),
        true
    );

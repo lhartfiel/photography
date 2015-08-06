@@ -7,6 +7,11 @@
 	background-color: black;
 	clear: both;
 
+	@include media($mobile-only) {
+		position: inherit;
+		top: 18px;
+	}
+
 	.images {
 		position: relative;
 		float: left;
@@ -15,12 +20,33 @@
 		border-right: 4px solid white;
 		background-image: rgba(0,0,0,.25);
 		
-
 		@include media($mobile-only) {
 			width: 100%;
 			height: 120px;
 			border-right: none;
-			border-bottom: 4px solid white;
+			border-bottom: 1px solid white;
+		}
+
+		&:last-of-type {
+			@include media($mobile-only) {
+				margin-bottom: 68px;
+			}
+		}
+
+		a {
+			  clear: both;
+  			display: block;
+		}
+
+		a:after {
+			position: absolute;
+			content: "";
+			width: 100%;
+			height: 100%;
+  		top: 0;
+  		left: 0;
+  		background-color: rgba(0,0,0,.5);
+  		transition: .5s all ease-in;
 		}
 
 		a.collapse {
@@ -34,14 +60,9 @@
 		  width: 100%;
 		}
 
-		a:after {
-			position: absolute;
-			content: "";
-			width: 100%;
-			height: 100%;
-  		top: 0;
-  		background-color: rgba(0,0,0,.5);
-  		transition: .5s all ease-in;
+		a.button.center {
+			display: inline-block;
+			margin-top: 20px;
 		}
 
 		&:hover {
@@ -70,11 +91,6 @@
 			border-right: 0;
 		}
 
-		a {
-			  clear: both;
-  			display: block;
-		}
-
 		img {
 			filter: grayscale(60%);
 			min-height: 100%;
@@ -98,7 +114,7 @@
 			a.collapse {
 				position: absolute;
 				display: inline-block;
-				width: 25%;
+				width: 32%;
 				top: 0;
 				right: 0;
 				padding: 10px;
@@ -107,8 +123,13 @@
 				text-decoration: none;
 				z-index: 12;
 
-				@include media($medium) {
+				@include media($tablet) {
 					width: 25%;
+					top: 18px;
+				}
+
+				@include media($medium) {
+					top: 0;
 				}
 
 				@include media($desktop) {
@@ -138,6 +159,7 @@
 			img {
 				// width: 100%!important;
 				position: absolute;
+				min-width: 100%;
 			}
 		}
 	}
@@ -152,7 +174,7 @@
 		transition: 1s all ease-in;
 
 		@include media($desktop) {
-			width: 40%;
+			width: 50%;
 		}
 
 		@include media($large) {
@@ -184,7 +206,6 @@
 				width: 250px;
 	  		height: 250px;
 			}
-
 		}
 	}
 	.image-reveal-content {
@@ -196,13 +217,12 @@
 		z-index: 120;
 		text-align: center;
 
-
 		@include media($medium) {
 			max-width: 215px;
 		}
 
 		@include media($desktop) {
-			max-width: 250px;
+			max-width: 290px;
 		}
 
 		@include media($large) {
@@ -225,11 +245,12 @@
 		color: $gold;
 		text-shadow: -2px 2px 0px rgba(255,255,255,.3);
 		z-index: 10;
-		font-family: $main-head;
+		font-family: $main-body-copy;
 
 		@include media($mobile-only) {
-				top: 20%;
-			}
+			top: 5%;
+			font-size: 36px;
+		}
 
 		&:before {
 			content: "";
@@ -245,6 +266,12 @@
 			right: 0;
 			border: 2px solid $gold;
 
+			@include media($mobile-only) {
+				height: 45px;
+				width: 45px;
+				top: 15%;
+			}
+
 			@include media($desktop) {
 				height: 70px;
 				width: 70px;
@@ -258,7 +285,7 @@
 	  padding-top: 8px;
 	  padding-bottom: 8px;
 	  text-align: center;
-	  font-family: $main-head;
+	  font-family: $main-body-copy;
 	  background-color: black;
 	  color: white;
 	  transition: all .5s ease-in;
@@ -273,7 +300,6 @@
   	}
 
   	@include media($medium) {
-  		// display: none;
   		opacity: 0;
   		transform: rotate(-45deg);
 	  	top: 74px;
@@ -289,12 +315,12 @@
   	}
 
   	@include media($large) {
-				  left: -135px;
+			left: -135px;
   	}
 	}
 
 	h2, p {
-		font-family: $main-head;
+		font-family: $main-body-copy;
 		color: $tertiary;
 		color: white;
   	text-shadow: 2px 2px 7px black;
@@ -326,7 +352,6 @@
 	}
 
 	p {
-		// font-family: $main-body-copy;
 		text-align: center;
 		font-size: 26px;
 		line-height: 34px;	
@@ -345,12 +370,10 @@
 			margin-top: 35px;
 
 		}
-
 	}
 }
 
 //Gallery Single Pages
-
 .lh-gallery {
 	clear: both;
 
@@ -363,10 +386,8 @@
 	float: left;
 }
 
-
 //Tiled Gallery
 .tiled-gallery-item {
-	// transition: all .5s ease-in;
 	position: relative;
 
 	&:after {

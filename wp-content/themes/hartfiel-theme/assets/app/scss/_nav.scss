@@ -6,18 +6,27 @@
 //Main navigation
 nav {
 	display: none;
+	overflow: hidden;
 
 	@include media($medium) {
 		display: block;
 		position: fixed;
 		height: 100%;
-		width: 270px;
+		width: 250px;
 		top: 0;
 		padding-top: 50px;
 		z-index: 100;
 		background-color: black;
 		border-right: 4px solid $gold;
 		text-align: center;
+	}
+
+	.bkg-pattern {
+		@include background-pattern(rgba(black, .8));
+
+		img {
+			height: 100%;
+		}
 	}
 
 	.logo {
@@ -42,22 +51,24 @@ nav {
 	}
 
 	ul li {
-		font-family: $main-body-copy;
+		font-family: $main-head;
+		list-style: none;
 
 		a {
+			position: relative;
 			list-style: none;
-			color: $gold;
 			text-decoration: none;
-			font-size: 14px;
-			line-height: 36px;
+			font-size: 13px;
+  		line-height: 30px;
 			text-transform: uppercase;
+			color: $gold;
 			transition: all .25s ease-in;
 
 			&:before {
 		    content: '\f101';
 				display: none;
-		    position: relative;
-				margin-right: 5px;
+		    position: absolute;
+				left: -15px;
 				vertical-align: middle;
 				font-family: 'FontAwesome';
 		    font-size: 14px;
@@ -70,7 +81,7 @@ nav {
 
 				@include media($medium) {
 					color: darken($gold, 10%);
-					margin-left: 10px;
+					margin-left: 6px;
 					background-color: transparent;
 					display: inline-block;
 				}
@@ -101,16 +112,17 @@ nav {
 		&.current_page_item  {
 
 			@include media($medium) {
-				margin-left: 0;
+				margin-left: 6px;
 				background-color: transparent;
 				display: inline-block;
 
-				a {
+				a {	
+						position: relative;
 						color: darken($gold, 10%);
 
 						&:before {
 							position: absolute;
-							left: 23px;
+							left: -15px;
 							display: inline-block;
 						}
 				}
@@ -120,7 +132,7 @@ nav {
 						color: $gold;
 
 						&:before {
-						 left: 45px;
+						 left: -15px;
 						} 
 					}
 				}
@@ -149,7 +161,7 @@ nav {
 					color: darken($gold, 10%);
 
 					&:before {
-						left: 44px;
+						left: -15px;
 					}
 				}
 			}
@@ -189,13 +201,16 @@ nav {
 /***************************
 //Mobile navigation
 ***************************/
+
 nav.mobile {
 	display: block;
 	cursor: pointer;
-	position: absolute;
+	position: fixed;
+	height: 70px;
 	top: 0;
 	left: 0;
 	right: 0;
+	background-color: black;
 	z-index: 100;
 
 	&:before {
@@ -205,8 +220,7 @@ nav.mobile {
 		text-align: right;
 		font-size: 32px;
 		color: white;
-		background-color: black;
-		padding: 10px;
+		padding: 15px;
 	}
 
 	&.open {
@@ -220,13 +234,25 @@ nav.mobile {
 			font-size: 32px;
 			color: white;
 			background-color: black;
-			padding: 10px;
+			padding: 15px;
 		}
 	}
 	
+	.logo-mobile {
+		position: absolute;
+		height: 50px;
+		top: 5px;
+		left: 20px;
+		overflow: hidden;
+		z-index: 100;
+
+		img {
+			max-height: 50px;
+		}
+	}
+
 	.menu {
 		display: none;
-
 	}
 
 	@include media($medium) {
@@ -241,7 +267,6 @@ nav.mobile {
 			height: 100%;
 			background-color: black;
 		}
-
 	}
 
 	ul {
@@ -251,7 +276,7 @@ nav.mobile {
 	}
 
 	ul li {
-		font-family: $main-body-copy;
+		font-family: $main-head;
 
 		ul li {
 			margin-left: 1em;
@@ -261,6 +286,8 @@ nav.mobile {
 			padding-left: 20px;
 			display: block;
 			width: 100%;
+			font-size: 22px;
+			line-height: 52px;
 
 			&:hover {
 				color: black;

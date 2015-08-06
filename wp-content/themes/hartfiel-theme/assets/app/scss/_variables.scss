@@ -24,5 +24,25 @@ $tertiary: $dark-purple;
 	height: auto;
 }
 
+//Mixins
+@mixin background-pattern($color) {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	&:after {
+		position: absolute;
+		content: "";
+		background-color: $color;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+	}
+}
+
 
 

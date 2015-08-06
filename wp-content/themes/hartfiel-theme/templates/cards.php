@@ -48,10 +48,10 @@
 						<?php } ?>
 						<?php if(!empty($button_label)) { ?>
 								<?php if(($button_type) === 'internal') { ?>
-									<a href="<?php echo $button_internal; ?>" class="button small cards"><?php echo $button_label; ?></a>
+									<a href="<?php echo $button_internal; ?>" class="button expanded"><?php echo $button_label; ?></a>
 								<?php } ?>	
 								<?php if(($button_type) === 'external') { ?>
-									<a href="<?php echo $button_external; ?>" class="button small cards"><?php echo $button_label; ?></a>
+									<a href="<?php echo $button_external; ?>" class="button expanded"><?php echo $button_label; ?></a>
 								<?php } ?>	
 						<?php } ?>
 					</div>
@@ -63,31 +63,34 @@
 									<img src="<?php echo $img['sizes']['head-img']; ?>">
 								</div>
 							<?php } ?>
-								
-							<?php if(!empty($header)) { ?>
-								<h5><?php echo $header; ?></h5>
-							<?php } ?>
 						</div> <!-- .top-content -->
-						<?php if(!empty($description)) { ?>
-							<div class="description">
-								<?php echo $description; ?>
-								<?php if(!empty($button_label)) { ?>
-										<?php if(($button_type) === 'internal') { ?>
-											<a href="<?php echo $button_internal; ?>" class="button small"><?php echo $button_label; ?></a>
-										<?php } ?>	
-										<?php if(($button_type) === 'external') { ?>
-											<a href="<?php echo $button_external; ?>" class="button small"><?php echo $button_label; ?></a>
-										<?php } ?>	
-								<?php } ?>	
-							</div>
-						<?php } ?>
-					</div>
+						
+						<div class="right-content">
+							<?php if(!empty($header)) { ?>
+								<h5 class=""><?php echo $header; ?></h5>
+							<?php } ?>
+							<?php if(!empty($description)) { ?>
+								<div class="description">
+									<?php echo $description; ?>
+									<?php if(!empty($button_label)) { ?>
+											<?php if(($button_type) === 'internal') { ?>
+												<a href="<?php echo $button_internal; ?>" class="button black"><?php echo $button_label; ?></a>
+											<?php } ?>	
+											<?php if(($button_type) === 'external') { ?>
+												<a href="<?php echo $button_external; ?>" class="button black"><?php echo $button_label; ?></a>
+											<?php } ?>	
+									<?php } ?>	
+								</div>
+							<?php } ?>	
+						</div> <!-- .right-content	 -->
+					</div><!--  .cards-featured -->
 				<?php }; ?>	
 				
 			<?php } //end while loop ?>
 			</div> <!-- .flex-container -->
 
 		</div><!-- /.grid-wrapper -->
+
 		
 	<?php } //end else if statement ?>
 

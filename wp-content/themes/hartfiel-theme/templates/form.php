@@ -17,20 +17,29 @@
 
 <div class="contact-form module">
 	<div class="grid-wrapper">
-		<h6><?php echo $intro; ?></h6>
-		<div class="form">
-			<?php echo $description; ?>
-		</div>
-		<div class="contact-info">
-				<div class="address">
-					<?php echo $address; ?>
-				</div>
-				<?php if(!empty($map)) { ?>
-				<div class="map">
-					<?php echo $map; ?>
-				</div>
-				<?php } ?>
-		</div>
+		<?php if( !empty($map) ) { ?>
+			<h6><?php echo $intro; ?></h6>
+			<div class="form">
+				<?php echo $description; ?>
+			</div>
+			<div class="contact-info">
+					<div class="address">
+						<?php echo $address; ?>
+					</div>
+					<?php if(!empty($map)) { ?>
+					<div class="map">
+						<?php echo $map; ?>
+					</div>
+					<?php } ?>
+			</div>
+		<?php } else { ?>
+		<div class="form-container">
+			<h6><?php echo $intro; ?></h6>
+			<div class="form form-only">
+				<?php echo $description; ?>
+			</div>
+		</div> <!-- .form-container -->	
+		<?php } ?>	
 	</div><!-- /.grid-wrapper -->
 
 </div>

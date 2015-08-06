@@ -16,6 +16,8 @@
 					<?php echo get_template_part('templates/header-image'); ?>
 				<?php } elseif( get_sub_field('modules') === 'cards') { ?>
 					<?php echo get_template_part('templates/cards'); ?>
+				<?php	} elseif( get_sub_field('modules') === 'cta') { ?>
+					<?php echo get_template_part('templates/cta'); ?>
 				<?php } elseif( get_sub_field('modules') === 'full-width') { ?>
 					<?php echo get_template_part('templates/full-width'); ?>
 				<?php } elseif( get_sub_field('modules') === ('2-col')) { ?>

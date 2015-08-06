@@ -12,12 +12,7 @@
 <!DOCTYPE html>
 
 <?php //stylesheets for any IE specific styles ?>
-<!--[if lt IE 9]>
-<html id="ie" <?php language_attributes(); ?>>
-<![endif]-->
-<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
-<html <?php language_attributes(); ?>>
-<!--<![endif]-->
+ <!--[if lt IE 10]><link rel="stylesheet" type="text/css" href="assets/build/css/ie.min.css"><![endif]-->
 
 <head>
 	<meta charset="<?php bloginfo( "charset" ); ?>" />
@@ -34,6 +29,8 @@
   <!--[if lt IE 9]>
       <script src="<?php echo get_template_directory_uri(); ?>/assets/vendor/html5shiv.min.js" type="text/javascript"></script>
   <![endif]-->
+  <!--[if lt IE 10]><link rel="stylesheet" type="text/css" href="assets/build/css/ie.min.css"><![endif]-->
+
 
   <?php // Lets other plugins and files tie into our theme's <head>:
   wp_head(); ?>
@@ -60,7 +57,7 @@
         <a href="<?php echo site_url(); ?>"><img src="<?php echo $logo['sizes']['medium']; ?>"></a>
       </div>
 
-      <?php //add nave menu from functions.php ?>
+      <?php //add nav menu from functions.php ?>
       <?php wp_nav_menu( array(
       'theme_location' => 'primary' )); 
       ?>
@@ -91,11 +88,16 @@
       </div> <!-- .social-icons -->
 
     </nav>
-
+  
     <nav class="mobile fa fa-bars">
+      <div class="logo-mobile">
+        <a href="<?php echo site_url(); ?>"><img src="<?php echo $logo['sizes']['medium']; ?>"></a>
+      </div>
+      
       <?php wp_nav_menu( array(
       'theme_location' => 'primary' )); 
       ?>
+  
     </nav>
 
 
@@ -103,3 +105,8 @@
   </header>
 
   <div id="main"> <!-- Start the main div -->
+    <div class="bkg-pattern full-site">
+      <img src="<?php echo get_site_url()."/wp-content/themes/hartfiel-theme/assets/img/cta_pattern.jpg" ?>">
+    </div>  
+     
+   

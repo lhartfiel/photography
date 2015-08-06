@@ -12,58 +12,35 @@
 
 <?php get_header(); ?>
 
-<div class="header-imgs">
-	<?php if(get_field('header_images', get_option('page_for_posts'))) { ?>
 
-			<div class="header-img-container">
+<?php if( is_home() && get_option('page_for_posts') ) { ?>
+	<div class="header-imgs">
+		<?php if(get_field('header_images', get_option('page_for_posts'))) { ?>
 
-				<?php //variables
-					$number = count(get_field('header_images', get_option('page_for_posts'))); //determine number of repeaters
-					$class_names = array(
-						1 => 'full-img',
-						2 => 'col-2-head',
-						3 => 'col-3-head'
-					);
+						<?php  $count = 1; ?>
 
-					//set default class name
-					$default_class = $class_names[1];
+						<?php while(has_sub_field('header_images', get_option('page_for_posts'))) { ?>
+							<?php $img = get_sub_field('image'); ?>
+							
+								<div class="img-<?php echo $count; ?> img-container">
+									<img src="<?php echo $img['sizes']['head-img']; ?>">		
+								</div>	
 
-					//check if $number exists within defined array
-					if(array_key_exists( $number, $class_names )) {
-						$default_class = $class_names[$number];
-					};
-				?>
-				<?php if((get_field('header_type', get_option('page_for_posts')) === '2_img') || (get_field('header_type', get_option('page_for_posts')) === '3_img')) { ?>
-					<?php while(has_sub_field('header_images', get_option('page_for_posts'))) { ?>
-						<?php $img = get_sub_field('image'); ?>
-						
-							<div class="img <?php echo esc_attr($default_class); ?> img-container">
-								<img src="<?php echo $img['sizes']['post_thumb_img']; ?>">		
-							</div>	
-						<?php } //endwhile?>			
-				<?php } //endif ?>
+								<?php $count++; ?>
 
-				<?php if(get_sub_field('header_type') === '1_img') { //get bigger image for headers with 1 image ?>
-					<?php while(has_sub_field('header_images')) { ?>
-						<?php $img = get_sub_field('image'); ?>
-							<div class="img <?php echo esc_attr($default_class); ?> img-container">
-								<img src="<?php echo $img['sizes']['large']; ?>">		
-							</div>	
-						<?php } //endwhile?>			
-				<?php } //endif ?>
+						<?php } //endwhile?>	
 
-			</div>	<!-- .header-img-container -->
+						<div class="title">
+								<h6><?php echo apply_filters('the_title',get_page( get_option('page_for_posts') )->post_title); ?></h6>
+								<p><?php echo (get_field('description', get_option('page_for_posts'))); ?></p>
+						</div>
 
-	<?php } //endif ?>	
+		<?php } //endif ?>	
 
-	<div class="title">
-		<div class="grid-wrapper">
-			<h3><?php echo get_the_title( get_option('page_for_posts') ); ?></h3>
-		</div>
-	</div>
 
-</div> <!-- .header-imgs -->
+	</div> <!-- .header-imgs -->
 
+<?php } ?>
 
 <div class="blog-section">
 	<div class="grid-wrapper">

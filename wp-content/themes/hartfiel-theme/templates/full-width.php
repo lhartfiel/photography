@@ -42,10 +42,10 @@
 
 			<?php if(!empty($button_label)) { ?>
 					<?php if(($button_type) === 'internal') { ?>
-						<a href="<?php echo $button_internal; ?>" class="button small"><?php echo $button_label; ?></a>
+						<a href="<?php echo $button_internal; ?>" class="button"><?php echo $button_label; ?></a>
 					<?php } ?>	
 					<?php if(($button_type) === 'external') { ?>
-						<a href="<?php echo $button_external; ?>" class="button small"><?php echo $button_label; ?></a>
+						<a href="<?php echo $button_external; ?>" class="button"><?php echo $button_label; ?></a>
 					<?php } ?>	
 			<?php } ?>
 

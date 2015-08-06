@@ -6,11 +6,26 @@
 	padding-bottom: 80px;
 }
 
+.form-container {
+	text-align: center;
+}
 .form {
 
 	@include media($desktop) {
 		float: left;
 		width: 60%;
+	}
+
+	&.form-only {
+		position: relative;
+		float: none;
+		border: 3px double purple;
+  	padding: 15px;
+		
+		@include media($desktop) {
+			display: inline-block;
+			margin: 0 auto;
+		}
 	}
 
 	p {

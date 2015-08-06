@@ -6,17 +6,45 @@ footer {
 	position: fixed;
 	z-index: 140;
 	bottom: 0;
-	background-color: $gold;
 	color: white;
 	width: 100%;
 	text-align: center;
 	padding: 8px;
+	box-shadow: 2px 0 3px 1px rgba(0,0,0,.3);
+
+	.bkg-pattern {
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		&:after {
+			position: absolute;
+			content: "";
+			background-color: rgba($gold, .6);
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
 
 	p {
 		display: inline-block;
 		font-weight: 300;
-		font-size: 14px;
+		font-size: 13px;
+		line-height: 20px;
 		color: white;
+
+		@include media($tablet) {
+			font-size: 14px;
+		}
 
 		@include media($desktop) {
 			  font-size: 15px;

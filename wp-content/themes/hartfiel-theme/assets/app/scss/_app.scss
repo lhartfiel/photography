@@ -15,18 +15,21 @@
 .lh-gallery,
 .single-post-body,
 .bottom-pagination,
-.contact-form {
+.contact-form,
+.cta-module,
+.error-container {
 	margin-left: 0;
 
   @include media($medium) {
-    margin-left: 270px;
+    margin-left: 250px;
   }
 }
 
 .cards-module,
 .col-2,
 .full-width,
-.blog-section {
+.blog-section,
+.error-container {
 	padding-top: 40px;
 	padding-bottom: 40px;
 
@@ -45,10 +48,14 @@
 .grid-wrapper {
 	@include outer-container;
   margin: 0 auto;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
 
- 
+  @include media($tablet) {
+  	padding-left: 40px;
+  	padding-right: 40px;
+  }
+
   @include media($desktop) {
     padding-left: 80px;
     padding-right: 80px;
@@ -81,7 +88,7 @@
 			font-size: 24px;
 			line-height: 40px;
 			color: $purple;
-			font-family: $main-head;
+			font-family: $main-body-copy;
 			text-align: center;
 			padding-top: 20px;
 			padding-bottom: 20px;
@@ -91,13 +98,13 @@
 				padding-top: 0;
 				padding-bottom: 0;
 			}
-
 		}
 	}
 }
 
-
+//**************************
 //Homepage Styles
+//**************************
 .home-container {
 	background-size: cover no-repeat center;
   position: fixed;
@@ -108,11 +115,16 @@
 	
 	.grid-wrapper {
 		position: relative;
-		top: 20%;
+		top: 62px;
+		height: 100%;
 		margin: 0 auto;
 		padding-left: 0; 
 		padding-right: 0;
 		text-align: center;
+
+		@include media($tablet) {
+			top: 20%;
+		}
 
 		@include media($medium) {
 			padding-left: 270px; 
@@ -139,13 +151,22 @@
 	.home-content {
 		background-color: rgba(black, 0.6);
 		display: inline-block;
-		padding: 45px 50px;
+		padding: 45px 10px;
 		position: relative;
 		top: 0;
 		bottom: 0;
+
+		@include media($mobile-only) {
+			height: 100%;
+		}
+
+		@include media($tablet) {
+			padding: 45px 50px;
+		}
 	}
 
 	h2, h3 {
+		font-family: $main-head;
 		text-align: center;
 		color: white;
 		text-shadow: 2px 1px 3px black;
@@ -156,7 +177,6 @@
 	}
 
 	h3 {
-		// text-transform: uppercase;
 		padding-top: 40px;
 		padding-bottom: 50px;
 
@@ -175,7 +195,10 @@
 	}
 }
 
+
+//**************************
 //Blog Index Styles
+//**************************
 
 .blog-section {
 	height: 100%;
@@ -197,6 +220,7 @@
 	@include span-columns(4 of 4);
 	height: 410px;
 
+
 	@include media($desktop) {
 		padding-top: 10px;
 	}
@@ -216,8 +240,7 @@
 		overflow: hidden;
 
 		@include media($tablet) {
-		height: 280px;
-
+			height: 280px;
 		}
 
 		@include media($large) {
@@ -228,11 +251,15 @@
 	.post-content {
 		background-color: rgba(0,0,0,.6);
 		position: absolute;
-  	height: auto;
+  	height: 100%;
 		padding: 10px;
 		z-index: 140;
 
 		@include media($tablet) {
+			height: 100%;
+		}
+
+		@include media($medium) {
 			padding-top: 30px;
 			padding-bottom: 30px;
 		}
@@ -251,21 +278,17 @@
 
 	.main-content {
 
-		.post-content {
-			height: 100%;
-
-			@include media($desktop) {
-					height: auto;
-
-				}
-		}
-
 		&:hover {
 			.post-content {
-				height: 100%;
 
-				@include media($desktop) {
+				@include media($medium) {
+					height: 100%;
+					
+				}
+
+				@include media($large) {
 					height: auto;
+					
 				}
 			}
 		}
@@ -285,7 +308,6 @@
 
 		@include media($tablet) {
 			padding-top: 20px;
-
 		}
 	}
 }
@@ -444,7 +466,6 @@
 
 		&:hover {
 
-
 			.post-img {
 				filter: grayscale(0);
 			}
@@ -469,7 +490,6 @@
 		height: 100%;
 		padding: 10px;
 		background-color: rgba(0,0,0,.6);
-
 
 		@include media($large) {
 			height: auto;
@@ -497,8 +517,9 @@
 	}
 }
 
-
-//Single Post Styles
+//**************************
+//Single Blog Post Styles
+//**************************
 .single-post-body {
 	position: relative;
 
@@ -532,7 +553,6 @@
 		display: none;
 		position: absolute;
 		bottom: 8%;
-		// top: 0;
 	  left: 0;
 	  padding: 10px 40px 10px 40px;
 		text-align: center;
@@ -582,7 +602,6 @@
 
 	h1, h2, h3, h4, h5, h6, li {
 		margin-bottom: 30px;
-		
 	}
 
 	p, li {
@@ -591,7 +610,6 @@
 
 	li {
 		margin-bottom: 8px;
-		font-size: 15px;
 	}
 
 	p {
@@ -602,7 +620,7 @@
 .bottom-pagination {
 	position: relative;
 	clear: both;
-	margin-bottom: 90px;
+	padding-bottom: 90px;
 	text-align: center;
 
 	.nav-previous a,
@@ -637,3 +655,87 @@
 		text-decoration: none;
 	}
 }
+
+//**************************
+//CTA Module
+//**************************
+.cta-module {
+	position: relative;
+	overflow: hidden;
+  padding: 30px 0;
+  box-shadow: 1px 2px 2px 1px rgba(0,0,0,.3);
+
+	.bkg-pattern {
+		@include background-pattern(rgba($dark-purple, .4));
+		
+		img {
+			width: 100%;
+			min-height: 100%;
+		}
+	}
+
+	.content {
+		text-align: center;
+	}
+
+	h4 {
+		display: inline;
+		text-transform: capitalize;
+		font-family: $main-body-copy;
+		color: white;
+	}
+	.title {
+		margin-left: 0;
+		display: block;
+		text-align: center;
+		margin-bottom: 15px;
+
+		@include media($desktop) {
+			display: inline;
+			float: left;
+			text-align: left;
+			margin-bottom: 0;
+		}
+	}
+	a.button {
+		display: inline-block;
+		text-align: center;
+
+		@include media($desktop) {
+			display: inline;
+			float: right;
+		}
+	}
+}
+
+//**************************
+//Background pattern
+//**************************
+.bkg-pattern {
+	@include background-pattern(rgba($gold, .6));
+	
+	img {
+		width: 100%;
+		min-height: 100%;
+	}
+}
+
+//**************************
+//404 Error Page
+//**************************
+.error-container {
+	h2 {
+		text-transform: uppercase;
+	  text-align: center;
+	  margin-bottom: 20px;
+	}
+
+	h5 {
+		text-align: center;
+	}
+
+	a {
+		color: $dark-purple;
+	}
+}
+

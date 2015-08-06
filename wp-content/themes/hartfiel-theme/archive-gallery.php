@@ -8,6 +8,12 @@ Template Name: Gallery Archive
 
 <div class="gallery-archive">
 	<!-- <h1><?php the_title(); ?></h1> -->
+	<div class="loader-container">
+		<div class="sk-chasing-dots">
+		 	<div class="sk-child sk-dot1"></div>
+		 	<div class="sk-child sk-dot2"></div>
+		</div>
+	</div>
 
 	<?php
 	//query for the gallery post type
@@ -23,6 +29,7 @@ Template Name: Gallery Archive
 			<?php $query -> the_post(); ?>
 
 			<div class="images">
+				
 				<a href="" class="collapse fa fa-minus-circle">Collapse</a>
 				<?php the_content(); ?>
 				<?php if(has_post_thumbnail()) { ?>
@@ -33,10 +40,11 @@ Template Name: Gallery Archive
 
 							<?php if(get_sub_field('image_gallery')) { ?>
 								<?php while(has_sub_field('image_gallery')) { ?>
+									<?php $photo_category = get_sub_field('photo_category') ?>
 
-									<?php if(!empty(get_sub_field('photo_category'))) { ?>
-									<h1><?php echo get_sub_field('photo_category'); ?></h1>
-									<h5><?php echo get_sub_field('photo_category'); ?></h5>
+									<?php if( !empty($photo_category) ) { ?>
+										<h1><?php echo get_sub_field('photo_category'); ?></h1>
+										<h5><?php echo get_sub_field('photo_category'); ?></h5>
 									<?php } //endif ?>
 									
 								<?php } //endwhile for image_gallery?>
@@ -55,10 +63,10 @@ Template Name: Gallery Archive
 										<h2><?php echo get_sub_field('photo_category'); ?></h2>
 										<?php echo get_sub_field('teaser'); ?>
 										<?php if(get_sub_field('button_link_type') === 'internal') { ?>
-											<a href="<?php echo get_sub_field('button_internal'); ?>" class="button small gallery"><?php echo get_sub_field('button_label'); ?></a>
+											<a href="<?php echo get_sub_field('button_internal'); ?>" class="button black center"><?php echo get_sub_field('button_label'); ?></a>
 										<?php } ?>	
 										<?php if(get_sub_field('button_link_type') === 'external') { ?>
-											<a href="<?php echo get_sub_field('button_external'); ?>" class="button small gallery"><?php echo get_sub_field('button_label'); ?></a>
+											<a href="<?php echo get_sub_field('button_external'); ?>" class="button black center"><?php echo get_sub_field('button_label'); ?></a>
 										<?php } ?>	
 									</div>
 							

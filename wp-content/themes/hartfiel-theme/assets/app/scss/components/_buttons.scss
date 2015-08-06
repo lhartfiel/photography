@@ -1,70 +1,77 @@
-@mixin button($color) {
+@mixin button($color1, $color2) {
+	background-color: $color1;
+	color: $color2;
+	border: 2px solid $color2;
 
+	&:hover {
+		background-color: $color2;
+		color: $color1;
+	}
 }
 
+//Normal size button throughout the site
 .button {
-	border: 2px solid $dark-purple;
-	padding: 10px 30px;
-	background-color: rgba(white, 0.6);
-	color: $dark-purple;
-	font-size: 24px;
-	font-family: $main-body-copy;
+	@include button(rgba(white, .6), $dark-purple);
+	font-size: 17px;
+	padding: 4px 20px;
+	font-family: $main-head;
 	text-transform: uppercase;
 	text-decoration: none;
 	font-weight: 400;
 	transition: .5s all ease;
 
-	&:hover {
-		background-color: $dark-purple;
-		color: white;
-		padding: 12px 40px;
-	}	
-
-	&.btn-large {
-		background-color: transparent;
-		border: 2px solid white;
-		color: white;
-	}
-}
-
-.small {
-	border: none;
-	font-size: 17px;
-	border: 2px solid $dark-purple;
-	color: $dark-purple;
-	padding: 4px 20px;
-	transition: all .5s ease;
-
 	@include media($portables) {
 		text-align: center;
-		display: block;
-		margin: 0 15%;
+		display: inline-block;
+		margin: 0 auto;
 	}	
 
 	&:hover {
 		background-color: $dark-purple;
 		color: white;
-		padding: 6px 30px;
 
 		&:before {
 			margin-left: 0px;
 			color: white;
 		}
 	}
-}
+	
+	//homepage button
+	&.btn-large {
+		padding: 10px 30px;
+		font-size: 24px;
+		background-color: transparent;
+		color: white;
+		border: 2px solid white;
+		transition: all .5s ease-in-out;
+		transform: scale(1);
 
-.small.gallery {
-	border: 2px solid black;
-	color: white;
-	background-color: black; 
+		&:hover {
 
-	&:hover {
-		background-color: white;
-		color: black;
+			@include media($medium) {
+				padding: 12px 40px;
+			}
+
+		}	
 	}
 }
 
-.cards {
+//Button background color black
+&.black {
+	@include button(black, white);
+}
+
+//Button background color transparent/border white
+&.white {
+	@include button(transparent, white);
+
+	&:hover {
+		color: black;
+	}	
+}
+
+//Full-width button (see cards module)
+.expanded {
 	width: auto;
 	position: absolute;
 	bottom: 0;

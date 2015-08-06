@@ -17,11 +17,14 @@
 	?>
 
 		<footer>
+			<div class="bkg-pattern">
+				<img src="<?php echo get_site_url()."/wp-content/themes/hartfiel-theme/assets/img/cta_pattern.jpg" ?>">
+			</div>
 			<div class="grid-wrapper">
 				<p>&copy;<?php the_time('Y'); ?></p>
 				<p><?php echo $bizname; ?></p>
 				<div class="site-by">
-        	<p>Designed by <a href="http://www.lindsayhartfiel.com">Lindsay Hartfiel</a></p>
+        	<p>Design & Dev by <a href="http://www.lindsayhartfiel.com">Lindsay Hartfiel</a></p>
       	</div>
 			</div> <!-- .grid-wrapper -->
 		</footer>

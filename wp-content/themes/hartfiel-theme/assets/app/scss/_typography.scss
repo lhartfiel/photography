@@ -2,12 +2,11 @@
 //Font Families
 $source: 'Source Sans Pro', sans-serif;
 $playfair: 'Playfair Display', serif;
-$elite: 'Special Elite', cursive;
 $quattro: 'Quattrocento Sans', sans-serif;
 $puritan: 'Puritan', sans-serif;
 
-$main-head: $playfair;
-$main-body-copy: $quattro;
+$main-head: $quattro;
+$main-body-copy: $playfair;
 
 
 //Define any extends for typography
@@ -17,7 +16,6 @@ $main-body-copy: $quattro;
 }
 
 //Header and Copy Styles
-
 h1, h2, h3, h4, h5, h6, p {
 	@extend .base-head;
 	color: $primary;
@@ -70,12 +68,15 @@ h6 {
 	font-size: 18px;
 }
 
-p {
+p, ul, ol, ul li, ol li {
 	font-family: $main-body-copy;
 	font-size: 15px;
 	line-height: 26px;
 }
 
-ul, ol {
-
+ul, 
+ol, 
+ul li, 
+ol li {
+	line-height: 22px;
 }
